@@ -1,4 +1,7 @@
-# Root Makefile
+all:
+	$(MAKE) -C subjects all
 
-# Delegating to subjects
-include subjects/Makefile
+clean:
+	$(MAKE) -C subjects clean
+
+.PHONY: all clean
