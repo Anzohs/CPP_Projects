@@ -1,0 +1,30 @@
+\documentclass[11pt]{article}
+\usepackage{42subject}
+
+\begin{document}
+\subjectcover{tinycc++}{C++ Compilers / Tiny C Compiler}{Version 1.0 -- 2026-03-11}
+
+\section{Summary}
+Write a tiny compiler for a restricted C-like subset (lexer, parser, AST, semantic checks, code generation).
+\subjectsep
+
+\begin{metablock}
+Project: & tinycc++ \\
+Language: & C++ (C++11) \\
+Operating System: & macOS \\
+Deliverables: & Source code + Makefile + tests \\
+\end{metablock}
+
+\section{Mandatory Part}
+\begin{itemize}
+  \item Subset: \texttt{int}, arithmetic, variables, \texttt{if/else}, \texttt{while}, functions.
+  \item Emit x86\_64 assembly or LLVM IR.
+  \item Reject invalid programs with meaningful errors.
+\end{itemize}
+
+\section{Bonus}
+\begin{itemize}
+  \item Optimizations, better diagnostics, more language features.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,107 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{42subject}[2026/03/11 Blank 42-style subject layout]
+
+\RequirePackage[a4paper,margin=22mm]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{fancyhdr}
+\RequirePackage{enumitem}
+\RequirePackage{tabularx}
+\RequirePackage{titlesec}
+\RequirePackage{setspace}
+\RequirePackage{microtype}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black,
+  pdfborder={0 0 0}
+}
+
+\setstretch{1.06}
+
+\definecolor{subjectGray}{gray}{0.25}
+\definecolor{subjectLightGray}{gray}{0.6}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+\setlist[itemize]{leftmargin=18pt, itemsep=2pt, topsep=4pt}
+\setlist[enumerate]{leftmargin=18pt, itemsep=2pt, topsep=4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancyhead[L]{\textcolor{subjectGray}{\nouppercase{\leftmark}}}
+\fancyhead[R]{\textcolor{subjectGray}{\thepage}}
+
+\newcommand{\subjectsep}{\vspace{6pt}\noindent\textcolor{subjectLightGray}{\rule{\linewidth}{0.4pt}}\vspace{8pt}}
+
+\newenvironment{metablock}{
+  \begin{tabularx}{\linewidth}{>{\bfseries}l X}
+}{
+  \end{tabularx}
+}
+
+% Blank cover: uses out/back.pdf (plain dark page) and text only
+\newcommand{\subjectcover}[3]{% #1=Project #2=Module/ID #3=Version/date
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{-18mm}
+    \includegraphics[width=\paperwidth,height=\paperheight]{out/back.pdf}
+    \vspace*{-\paperheight}
+
+    \vspace*{70mm}
+    {\Huge\bfseries #1\par}
+    \vspace*{4mm}
+    {\Large\bfseries #2\par}
+    \vspace*{12mm}
+    {\large #3\par}
+  \end{center}
+  \clearpage
+}
+
+\newenvironment{rulebox}{
+  \vspace{4pt}
+  \noindent
+  \setlength{\fboxsep}{10pt}
+  \setlength{\fboxrule}{0.6pt}
+  \fcolorbox{subjectLightGray}{white}{%
+    \begin{minipage}{0.965\linewidth}
+}{
+    \end{minipage}
+  }
+  \vspace{8pt}
+}
+
+\newcommand{\blankcover}[3]{% #1=Project #2=Module/ID #3=Version/date
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{-18mm}
+    \includegraphics[width=\paperwidth,height=\paperheight]{out/back.pdf}
+    \vspace*{-\paperheight}
+
+    \vspace*{70mm}
+    {\Huge\bfseries #1\par}
+    \vspace*{4mm}
+    {\Large\bfseries #2\par}
+    \vspace*{12mm}
+    {\large #3\par}
+  \end{center}
+  \clearpage
+}

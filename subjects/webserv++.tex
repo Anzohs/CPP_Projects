@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage{42subject}
+
+\begin{document}
+\subjectcover{webserv++}{C++ Network / HTTP Server}{Version 1.0 -- 2026-03-11}
+
+\section{Summary}
+Implement a small HTTP/1.1 server in modern C++ (C++11), focusing on sockets, parsing, concurrency, and robustness.
+\subjectsep
+
+\begin{metablock}
+Project: & webserv++ \\
+Language: & C++ (C++11) \\
+Operating System: & macOS \\
+Deliverables: & Source code + Makefile \\
+\end{metablock}
+
+\begin{rulebox}
+\textbf{You must:}
+\begin{itemize}
+  \item Compile with \texttt{c++ -std=c++11 -Wall -Wextra -Werror}.
+  \item Provide a \texttt{Makefile} with rules: \texttt{all}, \texttt{clean}, \texttt{fclean}, \texttt{re}.
+  \item Not crash on malformed input; handle errors gracefully.
+\end{itemize}
+\end{rulebox}
+
+\section{Goals}
+\begin{itemize}
+  \item Understand TCP sockets, non-blocking I/O, and multiplexing.
+  \item Parse HTTP/1.1 requests and generate valid responses.
+  \item Manage configuration and multiple virtual servers.
+\end{itemize}
+
+\section{General Rules}
+\begin{itemize}
+  \item Any memory leak, invalid read/write, or undefined behavior is considered a failure.
+  \item Your server must remain responsive under concurrent clients.
+  \item You must document how to run and test your server.
+\end{itemize}
+
+\section{Mandatory Part}
+\subsection{Configuration}
+\begin{itemize}
+  \item Read a configuration file defining one or more servers (host/port, server name, routes).
+  \item Support per-route settings: root, index, allowed methods, upload directory, CGI mapping.
+\end{itemize}
+
+\subsection{HTTP Support}
+\begin{itemize}
+  \item Support at least: \texttt{GET}, \texttt{POST}, \texttt{DELETE}.
+  \item Correctly handle \texttt{Content-Length} and basic body reading.
+  \item Return proper status codes (4xx/5xx) on errors.
+\end{itemize}
+
+\subsection{I/O Model}
+\begin{itemize}
+  \item Use a multiplexing strategy (\texttt{select}, \texttt{kqueue}, or \texttt{poll}).
+  \item Multiple clients must be served without blocking the whole process.
+\end{itemize}
+
+\section{Bonus}
+\begin{itemize}
+  \item HTTP keep-alive with correct connection management.
+  \item Advanced routing or caching.
+\end{itemize}
+
+\section{Submission and Peer-evaluation}
+\begin{itemize}
+  \item Provide a short README with examples (\texttt{curl}) and configuration samples.
+  \item Evaluators must be able to start the server with one command.
+\end{itemize}
+
+\end{document}

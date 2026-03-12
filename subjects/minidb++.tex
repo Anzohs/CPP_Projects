@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage{42subject}
+
+\begin{document}
+\subjectcover{minidb++}{C++ Storage / Mini Database}{Version 1.0 -- 2026-03-11}
+
+\section{Summary}
+Build a small embedded database engine: a page-based storage layer, a simple B+Tree index, and a minimal SQL-like query interface.
+\subjectsep
+
+\begin{metablock}
+Project: & minidb++ \\
+Language: & C++ (C++11) \\
+Operating System: & macOS \\
+Deliverables: & Source code + Makefile + test programs \\
+\end{metablock}
+
+\begin{rulebox}
+\textbf{You must:}
+\begin{itemize}
+  \item Compile with \texttt{c++ -std=c++11 -Wall -Wextra -Werror}.
+  \item Keep the file format stable (document it).
+  \item Prevent corruption on crash; detect and recover if possible.
+\end{itemize}
+\end{rulebox}
+
+\section{Mandatory Part}
+\subsection{Storage}
+\begin{itemize}
+  \item Fixed-size pages (e.g. 4KB or 8KB).
+  \item Free-list management.
+\end{itemize}
+
+\subsection{Index}
+\begin{itemize}
+  \item B+Tree for integer keys.
+  \item Insert, lookup, delete.
+\end{itemize}
+
+\subsection{CLI}
+\begin{itemize}
+  \item \texttt{CREATE TABLE}, \texttt{INSERT}, \texttt{SELECT}, \texttt{DELETE}.
+\end{itemize}
+
+\section{Bonus}
+\begin{itemize}
+  \item Range scans, WAL, secondary indexes.
+\end{itemize}
+
+\end{document}

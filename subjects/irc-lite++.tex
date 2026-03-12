@@ -1,0 +1,25 @@
+\documentclass[11pt]{article}
+\usepackage{42subject}
+
+\begin{document}
+\subjectcover{irc-lite++}{C++ Network / IRC-like Server}{Version 1.0 -- 2026-03-11}
+
+\section{Summary}
+Create a small IRC-like server supporting multiple clients, channels, and a subset of IRC commands.
+\subjectsep
+
+\begin{metablock}
+Project: & irc-lite++ \\
+Language: & C++ (C++11) \\
+Operating System: & macOS \\
+Deliverables: & Source code + Makefile + README \\
+\end{metablock}
+
+\section{Mandatory Part}
+\begin{itemize}
+  \item Commands: \texttt{NICK}, \texttt{USER}, \texttt{JOIN}, \texttt{PART}, \texttt{PRIVMSG}, \texttt{QUIT}.
+  \item Channel management and per-client buffering.
+  \item \texttt{select}/\texttt{poll}/\texttt{kqueue} I/O model.
+\end{itemize}
+
+\end{document}
